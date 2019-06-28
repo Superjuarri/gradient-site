@@ -1,0 +1,11 @@
+:root {
+  --content-width: 85vw;
+  --content-max-width: 1440px;
+
+  --main-color: #ff254b;
+
+  --font-color: #4f4d63;
+  --font-color-dark: #323232;
+
+  color: var(--font-color);
+}
