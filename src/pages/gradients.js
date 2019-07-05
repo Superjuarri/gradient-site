@@ -1,12 +1,12 @@
 import React from 'react'
 import Layout from '../components/Layout'
 
-const Programs = () => {
+const Gradients = () => {
   return (
     <Layout>
-      <h2>Programs Page</h2>
+      <h2>Gradients Page</h2>
     </Layout>
   )
 }
 
-export default Programs
+export default Gradients

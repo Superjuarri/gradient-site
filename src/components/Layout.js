@@ -1,14 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Header from './Header'
+import Navbar from './Navbar'
 import Footer from './Footer'
 
 const Wrapper = styled.div`
+  width: 100vw;
+
   display: flex;
   position: absolute;
   min-height: 100vh;
   flex-direction: column;
+  overflow: hidden;
 `
 
 const Content = styled.div`
@@ -18,7 +21,7 @@ const Content = styled.div`
 const Layout = props => {
   return (
     <Wrapper>
-      <Header></Header>
+      <Navbar></Navbar>
       <Content>{props.children}</Content>
       <Footer></Footer>
     </Wrapper>

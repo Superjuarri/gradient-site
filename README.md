@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Gradient Site
+  Gradient Site 
 </h1>
 
 A site to get insparation and integreate gradients into your own site.

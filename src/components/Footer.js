@@ -9,6 +9,7 @@ const Wrapper = styled.footer`
   align-content: center;
 
   background: #404040;
+  overflow: hidden;
 `
 
 const Content = styled.div`

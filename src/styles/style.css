@@ -1,6 +1,6 @@
 :root {
   --content-width: 85vw;
-  --content-max-width: 1440px;
+  --content-max-width: 1200px;
 
   --main-color: #ff254b;
 
@@ -8,4 +8,9 @@
   --font-color-dark: #323232;
 
   color: var(--font-color);
+}
+
+body {
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
