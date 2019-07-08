@@ -2,15 +2,27 @@
   --content-width: 85vw;
   --content-max-width: 1200px;
 
-  --main-color: #ff254b;
-
   --font-color: #4f4d63;
-  --font-color-dark: #323232;
+  --font-color-dark: #444444;
+  --font-color-light: #a0a0a0;
 
   color: var(--font-color);
+  font-weight: 500;
 }
 
 body {
   box-sizing: border-box;
   overflow-x: hidden;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

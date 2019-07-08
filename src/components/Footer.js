@@ -3,12 +3,10 @@ import styled from 'styled-components'
 
 const Wrapper = styled.footer`
   width: 100vw;
-  height: 100px;
+  height: 75px;
 
   display: flex;
   align-content: center;
-
-  background: #404040;
   overflow: hidden;
 `
 
@@ -19,17 +17,26 @@ const Content = styled.div`
   width: var(--content-width);
   max-width: var(--content-max-width);
 
+  color: var(--font-color-light);
   justify-content: center;
   align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+`
 
-  color: #ffffff;
+const Love = styled.p`
+  span {
+    color: #e25555;
+  }
 `
 
 const Footer = () => {
   return (
     <Wrapper>
       <Content>
-        <h3>Footer</h3>
+        <Love>
+          Made with <span>&#9829;</span> in Southern California
+        </Love>
       </Content>
     </Wrapper>
   )

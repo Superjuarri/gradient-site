@@ -9,20 +9,33 @@ const Wrapper = styled.nav`
   gap: 2.5vw;
 `
 
-const StyledLink = styled(Link)`
+const activeClassName = 'active'
+const StyledLink = styled(Link).attrs({
+  activeClassName: activeClassName,
+})`
   text-decoration: none;
   transition: 0.2s;
   font-size: 1rem;
   font-weight: 500;
 
-  color: var(--font-color);
+  color: var(--font-color-light);
 
   :hover {
     color: var(--font-color-dark);
   }
+
+  &.${activeClassName} {
+    background: linear-gradient(45deg, #00dbde, #fc00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400% 400%;
+    animation: Gradient 15s ease infinite;
+
+    transition: 0.2s;
+  }
 `
 
-const Navbar = () => {
+const Nav = () => {
   return (
     <Wrapper>
       <StyledLink to="/">Home</StyledLink>
@@ -33,4 +46,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Nav

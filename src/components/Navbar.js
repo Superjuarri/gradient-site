@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-import Navbar from './Nav'
+import Nav from './Nav'
 
 const Wrapper = styled.div`
   position: sticky;
@@ -29,49 +30,33 @@ const Content = styled.div`
   background: inherit;
 `
 
-const Logo = styled.h1`
+const Logo = styled(Link)`
   cursor: pointer;
   flex: 1;
   font-size: 1.5rem;
+  line-height: 27.6px;
+  font-weight: 700;
+  text-decoration: none;
   white-space: nowrap;
 
-  background: linear-gradient(
-    -45deg ${({ gradient }) => gradient.map(color => `, #${color}`)}
-  );
+  background: linear-gradient(45deg, #00dbde, #fc00ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 400% 400%;
   animation: Gradient 15s ease infinite;
 
   transition: 0.2s;
-
-  @keyframes Gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
 `
 
-const Header = () => {
+const Navbar = () => {
   return (
     <Wrapper>
       <Content>
-        <Logo
-          gradient={['0000ff', 'E73C7E', '23A6D5', '23D5AB']}
-          hoverGradient={['ffa6db', 'ffa8a8', 'fffcd1']}
-        >
-          Gradient Site
-        </Logo>
-        <Navbar />
+        <Logo>Gradient Site</Logo>
+        <Nav />
       </Content>
     </Wrapper>
   )
 }
 
-export default Header
+export default Navbar
