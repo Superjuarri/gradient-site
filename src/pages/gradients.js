@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import 'normalize.css'
 import '../styles/style.css'
 
 import Layout from '../components/Layout'
 import GradientCardGrid from '../components/GradientCardGrid'
+import GradientModal from '../components/GradientModal'
 
 const gradients = [
   {
@@ -75,25 +76,15 @@ const gradients = [
   },
   {
     key: 12,
-    name: 'Sunset',
-    degree: 135,
-    gradient: [
-      '3f51b1',
-      '5a55ae',
-      '7b5fac',
-      '8f6aae',
-      'a86aa4',
-      'cc6b8e',
-      'f18271',
-      'f3a469',
-      'f7c978',
-    ],
+    name: 'Atlas',
+    degree: 90,
+    gradient: ['FEAC5E', 'C779D0', '4BC0C8'],
   },
   {
     key: 13,
     name: 'Shallow Sand',
-    degree: -45,
-    gradient: ['ffdee9', 'b5fffc'],
+    degree: 135,
+    gradient: ['b5fffc', 'ffdee9'],
   },
   {
     key: 14,
@@ -110,15 +101,31 @@ const gradients = [
   {
     key: 16,
     name: 'Gagarin',
-    degree: -225,
+    degree: 135,
     gradient: ['69EACB', 'EACCF8', '6654F1'],
   },
 ]
 
 const Gradients = () => {
+  const [modalGradient, setModalGradient] = useState(gradients[0])
+  const [modalOpacity, setModalOpacity] = useState(0)
+  const [modalPointerEvent, setModalPointerEvent] = useState('none')
+
   return (
     <Layout>
-      <GradientCardGrid gradients={gradients}></GradientCardGrid>
+      <GradientCardGrid
+        gradients={gradients}
+        setModalGradient={setModalGradient}
+        setModalOpacity={setModalOpacity}
+        setModalPointerEvent={setModalPointerEvent}
+      />
+      <GradientModal
+        gradient={modalGradient}
+        modalOpacity={modalOpacity}
+        modalPointerEvent={modalPointerEvent}
+        setModalOpacity={setModalOpacity}
+        setModalPointerEvent={setModalPointerEvent}
+      />
     </Layout>
   )
 }

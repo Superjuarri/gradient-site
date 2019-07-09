@@ -27,9 +27,10 @@ const GradientColor = styled.div`
     ${({ degree }) => degree}deg
       ${({ gradient }) => gradient.map(color => `, #${color}`)}
   );
+  cursor: pointer;
 `
 
-const GradientInformation = styled.div`
+const Information = styled.div`
   padding: 10px;
   width: 85%;
   display: grid;
@@ -44,7 +45,7 @@ const Name = styled.h4`
   color: var(--font-color-dark);
 `
 
-const GradientTechnicalInformation = styled.div`
+const TechnicalInformation = styled.div`
   width: 100%;
   display: flex;
   gap: 8px;
@@ -66,27 +67,40 @@ const Degree = styled.p`
   }
 `
 
-const GradientCard = ({ name, degree, gradient }) => {
+const GradientCard = ({
+  gradientInfo,
+  setModalGradient,
+  setModalOpacity,
+  setModalPointerEvent,
+}) => {
   const clipboard = useClipboard()
 
-  const colorDots = gradient.map(gradient => (
-    <ColorDot color={gradient}></ColorDot>
+  const colorDots = gradientInfo.gradient.map((color, index) => (
+    <ColorDot key={index} color={color} />
   ))
 
   return (
     <Wrapper>
       <Content>
-        <GradientColor degree={degree} gradient={gradient}></GradientColor>
-        <GradientInformation>
-          <Name>{name}</Name>
-          <GradientTechnicalInformation>
-            <Degree onClick={() => clipboard.copy(`${degree}`)}>
-              {degree}
+        <GradientColor
+          onClick={() => {
+            setModalGradient(gradientInfo)
+            setModalOpacity(1)
+            setModalPointerEvent('auto')
+          }}
+          degree={gradientInfo.degree}
+          gradient={gradientInfo.gradient}
+        ></GradientColor>
+        <Information>
+          <Name>{gradientInfo.name}</Name>
+          <TechnicalInformation>
+            <Degree onClick={() => clipboard.copy(`${gradientInfo.degree}`)}>
+              {gradientInfo.degree}
               <span>&#176;</span>
             </Degree>
             {colorDots}
-          </GradientTechnicalInformation>
-        </GradientInformation>
+          </TechnicalInformation>
+        </Information>
       </Content>
     </Wrapper>
   )

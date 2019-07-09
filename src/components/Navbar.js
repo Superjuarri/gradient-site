@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Content>
-        <Logo>Gradient Site</Logo>
+        <Logo to="/">Gradient Site</Logo>
         <Nav />
       </Content>
     </Wrapper>

@@ -13,6 +13,7 @@ const Wrapper = styled.footer`
 const Content = styled.div`
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
 
   width: var(--content-width);
   max-width: var(--content-max-width);
@@ -22,11 +23,13 @@ const Content = styled.div`
   align-items: center;
   font-size: 12px;
   font-weight: 500;
+
+  border-top: 1px dashed var(--font-color-light);
 `
 
 const Love = styled.p`
   span {
-    color: #e25555;
+    color: #ff0000;
   }
 `
 

@@ -27,12 +27,15 @@ const Tag = styled.span`
   box-shadow: 0px 3px 10px 0px rgba(156, 174, 191, 0.6);
   z-index: 100;
 
-  /* opacity: ${({ opacity }) => opacity}; */
-  visibility: ${({ visibility }) => visibility};
+  opacity: ${({ tagOpacity }) => tagOpacity};
+  pointer-events: ${({ tagPointerEvent }) => tagPointerEvent};
+
+  transition: 0.2s;
 `
 
 const ColorDot = ({ color }) => {
-  const [tagVisibility, setTagVisibility] = useState('hidden')
+  const [tagOpacity, setTagOpacity] = useState(0)
+  const [tagPointerEvent, setTagPointerEvent] = useState('none')
 
   const clipboard = useClipboard({
     copiedTimeout: 1000, // timeout duration in milliseconds
@@ -41,11 +44,17 @@ const ColorDot = ({ color }) => {
   return (
     <Wrapper
       onClick={() => clipboard.copy(color)}
-      onMouseEnter={() => setTagVisibility('visible')}
-      onMouseLeave={() => setTagVisibility('hidden')}
+      onMouseEnter={() => {
+        setTagOpacity(1)
+        setTagPointerEvent('auto')
+      }}
+      onMouseLeave={() => {
+        setTagOpacity(0)
+        setTagPointerEvent('none')
+      }}
       color={color}
     >
-      <Tag visibility={tagVisibility} /*opacity={tagOpacity}*/>
+      <Tag tagOpacity={tagOpacity} tagPointerEvent={tagPointerEvent}>
         {clipboard.copied ? 'Copied' : `#${color}`.toLowerCase()}
       </Tag>
     </Wrapper>

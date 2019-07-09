@@ -23,13 +23,20 @@ const Content = styled.div`
   align-content: space-between;
 `
 
-const GradientCardGrid = ({ gradients }) => {
+const GradientCardGrid = ({
+  gradients,
+  setModalGradient,
+  setModalOpacity,
+  setModalPointerEvent,
+}) => {
   const contentGradients = gradients.map(gradient => {
     return (
       <GradientCard
-        name={gradient.name}
-        degree={gradient.degree}
-        gradient={gradient.gradient}
+        key={gradient.key}
+        gradientInfo={gradient}
+        setModalGradient={setModalGradient}
+        setModalOpacity={setModalOpacity}
+        setModalPointerEvent={setModalPointerEvent}
       ></GradientCard>
     )
   })
