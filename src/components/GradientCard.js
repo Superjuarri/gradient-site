@@ -67,15 +67,10 @@ const Degree = styled.p`
   }
 `
 
-const GradientCard = ({
-  gradientInfo,
-  setModalGradient,
-  setModalOpacity,
-  setModalPointerEvent,
-}) => {
+const GradientCard = ({ gradientData, setModalStyles }) => {
   const clipboard = useClipboard()
 
-  const colorDots = gradientInfo.gradient.map((color, index) => (
+  const colorDots = gradientData.gradient.map((color, index) => (
     <ColorDot key={index} color={color} />
   ))
 
@@ -83,19 +78,21 @@ const GradientCard = ({
     <Wrapper>
       <Content>
         <GradientColor
-          onClick={() => {
-            setModalGradient(gradientInfo)
-            setModalOpacity(1)
-            setModalPointerEvent('auto')
+          onMouseDown={() => {
+            setModalStyles({
+              gradient: gradientData,
+              opacity: 1,
+              pointerEvent: 'auto',
+            })
           }}
-          degree={gradientInfo.degree}
-          gradient={gradientInfo.gradient}
+          degree={gradientData.degree}
+          gradient={gradientData.gradient}
         ></GradientColor>
         <Information>
-          <Name>{gradientInfo.name}</Name>
+          <Name>{gradientData.name}</Name>
           <TechnicalInformation>
-            <Degree onClick={() => clipboard.copy(`${gradientInfo.degree}`)}>
-              {gradientInfo.degree}
+            <Degree onClick={() => clipboard.copy(`${gradientData.degree}`)}>
+              {gradientData.degree}
               <span>&#176;</span>
             </Degree>
             {colorDots}

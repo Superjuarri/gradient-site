@@ -106,28 +106,23 @@ const gradients = [
   },
 ]
 
-const Gradients = () => {
-  const [modalGradient, setModalGradient] = useState(gradients[0])
-  const [modalOpacity, setModalOpacity] = useState(0)
-  const [modalPointerEvent, setModalPointerEvent] = useState('none')
+const GradientsPage = () => {
+  const [modalStyles, setModalStyles] = useState({
+    gradient: gradients[0],
+    opacity: 0,
+    pointerEvent: 'none',
+  })
 
   return (
     <Layout>
-      <GradientCardGrid
-        gradients={gradients}
-        setModalGradient={setModalGradient}
-        setModalOpacity={setModalOpacity}
-        setModalPointerEvent={setModalPointerEvent}
-      />
+      <GradientCardGrid gradients={gradients} setModalStyles={setModalStyles} />
+
       <GradientModal
-        gradient={modalGradient}
-        modalOpacity={modalOpacity}
-        modalPointerEvent={modalPointerEvent}
-        setModalOpacity={setModalOpacity}
-        setModalPointerEvent={setModalPointerEvent}
+        modalStyles={modalStyles}
+        setModalStyles={setModalStyles}
       />
     </Layout>
   )
 }
 
-export default Gradients
+export default GradientsPage

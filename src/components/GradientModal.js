@@ -37,26 +37,23 @@ const Content = styled.div`
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 `
 
-const GradientModal = ({
-  gradient,
-  modalOpacity,
-  modalPointerEvent,
-  setModalOpacity,
-  setModalPointerEvent,
-}) => {
+const GradientModal = ({ modalStyles, setModalStyles }) => {
   return (
     <Wrapper
       onMouseDown={() => {
-        setModalOpacity(0)
-        setModalPointerEvent('none')
+        setModalStyles({
+          gradient: modalStyles.gradient,
+          opacity: 0,
+          pointerEvent: 'none',
+        })
       }}
-      modalOpacity={modalOpacity}
-      modalPointerEvent={modalPointerEvent}
+      modalOpacity={modalStyles.opacity}
+      modalPointerEvent={modalStyles.pointerEvent}
     >
       <Content
-        name={gradient.name}
-        degree={gradient.degree}
-        gradient={gradient.gradient}
+        name={modalStyles.gradient.name}
+        degree={modalStyles.gradient.degree}
+        gradient={modalStyles.gradient.gradient}
       ></Content>
     </Wrapper>
   )
