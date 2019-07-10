@@ -5,7 +5,7 @@ import '../styles/style.css'
 import Layout from '../components/Layout'
 
 const Index = () => {
-  return <Layout></Layout>
+  return <Layout documentTitle="Gradient Site"></Layout>
 }
 
 export default Index

@@ -114,7 +114,7 @@ const GradientsPage = () => {
   })
 
   return (
-    <Layout>
+    <Layout documentTitle="Gradient Site - Gradients">
       <GradientCardGrid gradients={gradients} setModalStyles={setModalStyles} />
 
       <GradientModal
