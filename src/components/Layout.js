@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
 import Navbar from './Navbar'
@@ -15,11 +16,16 @@ const Content = styled.div`
   flex: 1;
 `
 
-const Layout = props => {
+const Layout = ({ children, documentTitle }) => {
   return (
     <Wrapper>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{documentTitle}</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <Navbar />
-      <Content>{props.children}</Content>
+      <Content>{children}</Content>
       <Footer />
     </Wrapper>
   )
