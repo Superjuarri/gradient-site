@@ -42,7 +42,7 @@ const Name = styled.h4`
   display: block;
   margin: 0 0 5px 0;
   align-self: center;
-  color: var(--font-color-dark);
+  color: var(--font-color);
 `
 
 const TechnicalInformation = styled.div`
