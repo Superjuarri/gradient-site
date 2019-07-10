@@ -29,7 +29,7 @@ const Content = styled.div`
 
 const Love = styled.p`
   span {
-    color: #ff0000;
+    color: #e31c3d;
   }
 `
 
