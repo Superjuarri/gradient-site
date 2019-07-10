@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { useClipboard } from 'use-clipboard-copy'
 
 const Wrapper = styled.div`
+  margin-right: 8px;
   display: block;
   height: 20px;
   width: 20px;

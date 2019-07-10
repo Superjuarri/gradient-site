@@ -22,6 +22,7 @@ const Layout = ({ children, documentTitle }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>{documentTitle}</title>
+        <html lang="en" />
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <Navbar />

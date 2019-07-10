@@ -6,13 +6,13 @@ const Wrapper = styled.nav`
   display: flex;
   align-items: center;
   flex-direction: row;
-  gap: 2.5vw;
 `
 
 const activeClassName = 'active'
 const StyledLink = styled(Link).attrs({
   activeClassName: activeClassName,
 })`
+  margin-left: 2.5vw;
   text-decoration: none;
   transition: 0.2s;
   font-size: 1rem;
@@ -26,7 +26,7 @@ const StyledLink = styled(Link).attrs({
 
   &.${activeClassName} {
     background: linear-gradient(45deg, #00dbde, #fc00ff);
-    background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 400% 400%;
     animation: Gradient 15s ease infinite;

@@ -22,7 +22,7 @@ const Content = styled.div`
   grid-template-rows: 7fr 3fr;
 `
 
-const GradientColor = styled.div`
+const Gradient = styled.div`
   background: linear-gradient(
     ${({ degree }) => degree}deg
       ${({ gradient }) => gradient.map(color => `, #${color}`)}
@@ -48,13 +48,12 @@ const Name = styled.h4`
 const TechnicalInformation = styled.div`
   width: 100%;
   display: flex;
-  gap: 8px;
   justify-self: center;
   align-items: center;
 `
 
 const Degree = styled.p`
-  margin: 0;
+  margin: 0 8px 0 0;
   align-self: center;
   white-space: nowrap;
   span {
@@ -77,7 +76,7 @@ const GradientCard = ({ gradientData, setModalStyles }) => {
   return (
     <Wrapper>
       <Content>
-        <GradientColor
+        <Gradient
           onMouseDown={() => {
             setModalStyles({
               gradient: gradientData,
@@ -87,7 +86,7 @@ const GradientCard = ({ gradientData, setModalStyles }) => {
           }}
           degree={gradientData.degree}
           gradient={gradientData.gradient}
-        ></GradientColor>
+        ></Gradient>
         <Information>
           <Name>{gradientData.name}</Name>
           <TechnicalInformation>
