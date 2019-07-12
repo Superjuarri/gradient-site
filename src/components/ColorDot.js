@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { animated, interpolate, useSpring } from 'react-spring'
 
 import { useClipboard } from 'use-clipboard-copy'
 
@@ -15,7 +16,7 @@ const Wrapper = styled.div`
   cursor: pointer;
 `
 
-const Tag = styled.span`
+const Tag = styled(animated.span)`
   position: relative;
   padding: 0.25rem 2.75rem;
   right: 175%;
@@ -27,35 +28,27 @@ const Tag = styled.span`
   border-radius: 0.2rem;
   box-shadow: 0px 3px 10px 0px rgba(156, 174, 191, 0.6);
   z-index: 100;
-
-  opacity: ${({ tagOpacity }) => tagOpacity};
-  pointer-events: ${({ tagPointerEvent }) => tagPointerEvent};
-
-  transition: 0.2s;
 `
 
 const ColorDot = ({ color }) => {
-  const [tagOpacity, setTagOpacity] = useState(0)
-  const [tagPointerEvent, setTagPointerEvent] = useState('none')
+  const clipboard = useClipboard({ copiedTimeout: 1000 })
 
-  const clipboard = useClipboard({
-    copiedTimeout: 1000, // timeout duration in milliseconds
+  const [hover, setHover] = useState(false)
+
+  const tagHover = useSpring({
+    opacity: hover ? 1 : 0,
+    visibility: hover ? 'visible' : 'hidden',
+    transform: hover ? 'translate3d(0,-5%,0)' : 'translate3d(0, 50%, 0)',
   })
 
   return (
     <Wrapper
       onClick={() => clipboard.copy(color)}
-      onMouseEnter={() => {
-        setTagOpacity(1)
-        setTagPointerEvent('auto')
-      }}
-      onMouseLeave={() => {
-        setTagOpacity(0)
-        setTagPointerEvent('none')
-      }}
+      onMouseEnter={() => setHover(!hover)}
+      onMouseLeave={() => setHover(!hover)}
       color={color}
     >
-      <Tag tagOpacity={tagOpacity} tagPointerEvent={tagPointerEvent}>
+      <Tag style={tagHover}>
         {clipboard.copied ? 'Copied' : `#${color}`.toLowerCase()}
       </Tag>
     </Wrapper>
