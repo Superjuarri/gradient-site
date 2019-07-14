@@ -6,6 +6,7 @@ import Nav from './Nav'
 
 const Wrapper = styled.div`
   position: sticky;
+  z-index: 998;
   top: 0;
   width: 100vw;
   height: 50px;

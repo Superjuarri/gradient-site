@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import 'normalize.css'
-import '../styles/style.css'
+import styled from 'styled-components'
 
 import Layout from '../components/Layout'
-import GradientCardGrid from '../components/GradientCardGrid'
-import GradientModal from '../components/GradientModal'
+
+import CardGrid from '../components/CardGrid'
+import GradientCard from '../components/GradientCard'
+import Modal from '../components/Modal'
 
 const gradients = [
   {
@@ -106,21 +107,37 @@ const gradients = [
   },
 ]
 
+const GradientModal = styled.div`
+  width: 100%;
+  height: 100%;
+
+  border-radius: 25px;
+  background: linear-gradient(
+    ${({ gradientData }) => gradientData.degree}deg
+      ${({ gradientData }) => gradientData.gradient.map(color => `, #${color}`)}
+  );
+`
+
 const GradientsPage = () => {
-  const [modalStyles, setModalStyles] = useState({
-    gradient: gradients[0],
-    opacity: 0,
-    pointerEvent: 'none',
+  const [currentGradient, setCurrentGradient] = useState(gradients[0])
+  const [modalToggle, setModalToggle] = useState(false)
+
+  const gradientCards = gradients.map(gradient => {
+    return (
+      <GradientCard
+        gradientData={gradient}
+        setModalToggle={setModalToggle}
+        setCurrentGradient={setCurrentGradient}
+      ></GradientCard>
+    )
   })
 
   return (
     <Layout documentTitle="Gradient Site - Gradients">
-      <GradientCardGrid gradients={gradients} setModalStyles={setModalStyles} />
-
-      <GradientModal
-        modalStyles={modalStyles}
-        setModalStyles={setModalStyles}
-      />
+      <CardGrid>{gradientCards}</CardGrid>
+      <Modal modalToggle={modalToggle} setModalToggle={setModalToggle}>
+        <GradientModal gradientData={currentGradient} />
+      </Modal>
     </Layout>
   )
 }

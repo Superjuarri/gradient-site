@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { animated, interpolate, useSpring } from 'react-spring'
+import { animated, useSpring } from 'react-spring'
 
 import { useClipboard } from 'use-clipboard-copy'
 
@@ -20,7 +20,7 @@ const Tag = styled(animated.span)`
   position: relative;
   padding: 0.25rem 2.75rem;
   right: 175%;
-  bottom: 155%;
+  bottom: 150%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,17 +28,17 @@ const Tag = styled(animated.span)`
   border-radius: 0.2rem;
   box-shadow: 0px 3px 10px 0px rgba(156, 174, 191, 0.6);
   z-index: 100;
+  pointer-events: none;
 `
 
 const ColorDot = ({ color }) => {
   const clipboard = useClipboard({ copiedTimeout: 1000 })
 
   const [hover, setHover] = useState(false)
-
   const tagHover = useSpring({
     opacity: hover ? 1 : 0,
     visibility: hover ? 'visible' : 'hidden',
-    transform: hover ? 'translate3d(0,-5%,0)' : 'translate3d(0, 50%, 0)',
+    transform: hover ? 'translate3d(0, 0, 0)' : 'translate3d(0, 50%, 0)',
   })
 
   return (

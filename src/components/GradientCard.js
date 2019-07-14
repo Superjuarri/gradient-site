@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { animated, useSpring } from 'react-spring'
+
 import { useClipboard } from 'use-clipboard-copy'
 
 import ColorDot from './ColorDot'
 
-const Wrapper = styled.div`
+const Wrapper = styled(animated.div)`
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -18,7 +20,6 @@ const Content = styled.div`
   height: 100%;
 
   display: grid;
-
   grid-template-rows: 7fr 3fr;
 `
 
@@ -66,23 +67,34 @@ const Degree = styled.p`
   }
 `
 
-const GradientCard = ({ gradientData, setModalStyles }) => {
+const GradientCard = ({ gradientData, setModalToggle, setCurrentGradient }) => {
   const clipboard = useClipboard()
+  const [hover, setHover] = useState(false)
+
+  const { scale } = useSpring({
+    scale: hover ? 1.05 : 1,
+    config: {
+      mass: 1,
+      tension: 700,
+      friction: 50,
+    },
+  })
 
   const colorDots = gradientData.gradient.map((color, index) => (
     <ColorDot key={index} color={color} />
   ))
 
   return (
-    <Wrapper>
+    <Wrapper
+      onMouseEnter={() => setHover(!hover)}
+      onMouseLeave={() => setHover(!hover)}
+      style={{ transform: scale.interpolate(s => `scale(${s})`) }}
+    >
       <Content>
         <Gradient
           onMouseDown={() => {
-            setModalStyles({
-              gradient: gradientData,
-              opacity: 1,
-              pointerEvent: 'auto',
-            })
+            setCurrentGradient(gradientData)
+            setModalToggle(true)
           }}
           degree={gradientData.degree}
           gradient={gradientData.gradient}
