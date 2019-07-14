@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import 'normalize.css'
+import '../styles/style.css'
 
 import Layout from '../components/Layout'
 
