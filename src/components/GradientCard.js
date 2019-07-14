@@ -71,8 +71,8 @@ const GradientCard = ({ gradientData, setModalToggle, setCurrentGradient }) => {
   const clipboard = useClipboard()
   const [hover, setHover] = useState(false)
 
-  const { scale } = useSpring({
-    scale: hover ? 1.05 : 1,
+  const { hvbso } = useSpring({
+    hvbso: hover ? [0, 20, 25, -5, 0.3] : [0, 20, 25, -5, 0.2],
     config: {
       mass: 1,
       tension: 700,
@@ -88,7 +88,11 @@ const GradientCard = ({ gradientData, setModalToggle, setCurrentGradient }) => {
     <Wrapper
       onMouseEnter={() => setHover(!hover)}
       onMouseLeave={() => setHover(!hover)}
-      style={{ transform: scale.interpolate(s => `scale(${s})`) }}
+      style={{
+        boxShadow: hvbso.interpolate(
+          (h, v, b, s, o) => `${h}px ${v}px ${b}px ${s}px rgba(0, 0, 0, ${o})`
+        ),
+      }}
     >
       <Content>
         <Gradient
