@@ -9,9 +9,7 @@ import ColorDot from './ColorDot'
 const Wrapper = styled(animated.div)`
   width: 100%;
   height: 100%;
-  overflow: hidden;
 
-  border-radius: 3px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.125),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 `

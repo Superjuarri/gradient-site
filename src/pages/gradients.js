@@ -113,7 +113,7 @@ const GradientModal = styled.div`
   width: 100%;
   height: 100%;
 
-  border-radius: 25px;
+  border-radius: 11px;
   background: linear-gradient(
     ${({ gradientData }) => gradientData.degree}deg
       ${({ gradientData }) => gradientData.gradient.map(color => `, #${color}`)}
