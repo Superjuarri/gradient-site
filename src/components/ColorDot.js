@@ -7,8 +7,8 @@ import { useClipboard } from 'use-clipboard-copy'
 const Wrapper = styled.div`
   margin-right: 8px;
   display: block;
-  height: 20px;
-  width: 20px;
+  height: 22px;
+  width: 22px;
   border-radius: 50%;
   background-color: #${({ color }) => color};
   box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -20,7 +20,7 @@ const Tag = styled(animated.span)`
   position: relative;
   padding: 0.25rem 2.75rem;
   right: 175%;
-  bottom: 150%;
+  bottom: 155%;
   display: flex;
   align-items: center;
   justify-content: center;
