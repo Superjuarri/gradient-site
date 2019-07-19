@@ -16,7 +16,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "copy-to-clipboard": "^3.2.0",
-    "gatsby": "^2.13.19",
+    "gatsby": "^2.13.28",
     "gatsby-plugin-manifest": "^2.2.3",
     "gatsby-plugin-react-helmet": "^3.1.2",
     "gatsby-plugin-styled-components": "^3.1.2",
@@ -26,8 +26,8 @@
     "react-helmet": "^5.2.1",
     "react-spring": "^8.0.27",
     "react-use-clipboard": "0.1.4",
-    "styled-components": "^5.0.0-beta.6-ej4",
-    "use-clipboard-copy": "^0.1.0"
+    "styled-components": "^4.3.2",
+    "use-clipboard-copy": "^0.1.1"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
