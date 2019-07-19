@@ -18,9 +18,9 @@ const Wrapper = styled.div`
 
 const Tag = styled(animated.span)`
   position: relative;
+  right: calc(2.75rem / 1.28);
+  bottom: 2.25rem;
   padding: 0.25rem 2.75rem;
-  right: 175%;
-  bottom: 155%;
   display: flex;
   align-items: center;
   justify-content: center;
