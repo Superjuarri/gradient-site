@@ -127,6 +127,7 @@ const GradientsPage = () => {
   const gradientCards = gradients.map(gradient => {
     return (
       <GradientCard
+        key={gradient.key}
         gradientData={gradient}
         setModalToggle={setModalToggle}
         setCurrentGradient={setCurrentGradient}
