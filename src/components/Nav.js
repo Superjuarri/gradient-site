@@ -26,6 +26,7 @@ const StyledLink = styled(Link).attrs({
 
   &.${activeClassName} {
     background: linear-gradient(45deg, #00dbde, #fc00ff);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 400% 400%;
