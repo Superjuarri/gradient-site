@@ -31,9 +31,13 @@ const Content = styled.div`
   background: inherit;
 `
 
+const LogoWrapper = styled.div`
+  flex: 1;
+`
+
 const Logo = styled(Link)`
   cursor: pointer;
-  flex: 1;
+
   font-size: 1.5rem;
   line-height: 27.6px;
   font-weight: 700;
@@ -41,6 +45,7 @@ const Logo = styled(Link)`
   white-space: nowrap;
 
   background: linear-gradient(45deg, #00dbde, #fc00ff);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 400% 400%;
@@ -53,7 +58,10 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Content>
-        <Logo to="/">Gradient Site</Logo>
+        <LogoWrapper>
+          <Logo to="/">Gradient Site</Logo>
+        </LogoWrapper>
+
         <Nav />
       </Content>
     </Wrapper>
