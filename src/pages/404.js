@@ -1,51 +1,60 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import 'normalize.css'
+import '../styles/style.css'
 
 import Layout from '../components/Layout'
 
 const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-`
-
-const Content = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100%;
 
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+`
 
-  text-align: center;
+const Content = styled.div`
+  width: var(--content-width);
+  max-width: var(--content-max-width);
+  height: 82.5vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+`
+
+const StyledLink = styled(Link)`
+  min-width: 75px;
+
+  color: var(--font-color);
+  font-weight: 700;
 `
 
 const Text404 = styled.h1`
-  font-size: 5rem;
+  margin-top: 0;
+  white-space: nowrap;
+  font-size: 4.5rem;
   background: linear-gradient(45deg, #00dbde, #fc00ff);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 400% 400%;
   animation: Gradient 15s ease infinite;
-`
-
-const ReturnHome = styled.p``
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
+  text-shadow: 0 3px 3px rgba(255, 255, 255, 0.5);
 `
 
 const NotFound = () => {
   return (
-    <Layout>
+    <Layout documentTitle="Gradient Site - 404 error...">
       <Wrapper>
         <Content>
-          <Text404>404 o:</Text404>
-          <ReturnHome>
-            Page not found... <br />
-            Return <StyledLink to="/">home</StyledLink>.
-          </ReturnHome>
+          <Text404>
+            Page Not
+            <br /> Found...
+          </Text404>
+          <StyledLink to="/">Return Home</StyledLink>
         </Content>
       </Wrapper>
     </Layout>
