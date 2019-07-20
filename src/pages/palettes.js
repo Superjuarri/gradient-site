@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import 'normalize.css'
 import '../styles/style.css'
 
+import useWindowDimensions from '../hooks/useWindowDimensions'
+
 import Layout from '../components/Layout'
 
 import CardGrid from '../components/CardGrid'
@@ -49,7 +51,7 @@ const palettes = [
   {
     key: 8,
     name: 'Warm Flame',
-    colors: ['ff487e', 'ff9776', 'ffd5be', 'ffedff'],
+    colors: ['6319ff', 'fe4680', 'ff8978', 'fec670'],
   },
   {
     key: 9,
@@ -100,6 +102,8 @@ const PaletteModal = styled.div`
   border-radius: 11px;
 
   display: flex;
+  flex-direction: ${({ viewportWidth }) =>
+    viewportWidth <= 900 ? 'column' : 'row'};
   cursor: pointer;
 `
 
@@ -111,6 +115,8 @@ const Color = styled.div`
 `
 
 const Palettes = () => {
+  const { width } = useWindowDimensions()
+
   const [currentPalette, setCurrentPalette] = useState(palettes[0])
   const [modalToggle, setModalToggle] = useState(false)
 
@@ -133,7 +139,9 @@ const Palettes = () => {
     <Layout documentTitle="Gradient Site - Palettes">
       <CardGrid>{paletteCards}</CardGrid>
       <Modal modalToggle={modalToggle} setModalToggle={setModalToggle}>
-        <PaletteModal palleteData={currentPalette}>{colors}</PaletteModal>
+        <PaletteModal palleteData={currentPalette} viewportWidth={width}>
+          {colors}
+        </PaletteModal>
       </Modal>
     </Layout>
   )
