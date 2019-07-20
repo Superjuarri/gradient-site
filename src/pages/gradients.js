@@ -105,7 +105,7 @@ const gradients = [
     key: 16,
     name: 'Gagarin',
     degree: 135,
-    gradient: ['69EACB', 'EACCF8', '6654F1'],
+    gradient: ['69EACB', '6654F1'],
   },
 ]
 
