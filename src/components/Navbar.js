@@ -2,7 +2,10 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-import Nav from './Nav'
+import useWindowDimensions from '../hooks/useWindowDimensions'
+
+import NavbarNav from './NavbarNav'
+import Hamburger from './Hamburger'
 
 const Wrapper = styled.div`
   position: sticky;
@@ -10,7 +13,6 @@ const Wrapper = styled.div`
   top: 0;
   width: 100vw;
   height: 50px;
-  overflow: hidden;
 
   display: flex;
   align-items: center;
@@ -28,7 +30,7 @@ const Content = styled.div`
 
   justify-items: right;
   align-items: center;
-  background: inherit;
+  background: transparent;
 `
 
 const LogoWrapper = styled.div`
@@ -37,6 +39,7 @@ const LogoWrapper = styled.div`
 
 const Logo = styled(Link)`
   cursor: pointer;
+  padding: 1rem;
 
   font-size: 1.5rem;
   line-height: 27.6px;
@@ -55,14 +58,16 @@ const Logo = styled(Link)`
 `
 
 const Navbar = () => {
+  const { width } = useWindowDimensions()
+
   return (
     <Wrapper>
       <Content>
         <LogoWrapper>
-          <Logo to="/">Gradient Site</Logo>
+          <Logo to="/">Color Site</Logo>
         </LogoWrapper>
 
-        <Nav />
+        {width <= 900 ? <Hamburger /> : <NavbarNav />}
       </Content>
     </Wrapper>
   )
