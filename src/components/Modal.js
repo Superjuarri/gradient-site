@@ -20,7 +20,6 @@ const Wrapper = styled(animated.div)`
   pointer-events: ${({ modalPointerEvent }) => modalPointerEvent};
 
   cursor: pointer;
-  transition: 0.2s;
 `
 
 const Content = styled.div`
@@ -39,8 +38,8 @@ const Modal = ({ children, modalToggle, setModalToggle }) => {
     o: modalToggle ? 1 : 0,
     config: {
       mass: 1,
-      tension: 3000,
-      friction: 100,
+      tension: 1000,
+      friction: 70,
     },
   })
 
