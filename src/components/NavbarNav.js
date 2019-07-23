@@ -6,6 +6,8 @@ const Wrapper = styled.nav`
   display: flex;
   align-items: center;
   flex-direction: row;
+  position: relative;
+  left: 1rem;
 `
 
 const activeClassName = 'active'
@@ -21,7 +23,8 @@ const StyledLink = styled(Link).attrs({
 
   color: var(--font-color-light);
 
-  :hover {
+  :hover,
+  :focus {
     color: var(--font-color-dark);
   }
 

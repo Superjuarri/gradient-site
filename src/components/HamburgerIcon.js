@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Wrapper = styled.button`
   position: absolute;
   bottom: 10px;
-  right: 7.5vw;
+  right: 6.7vw;
 
   height: 32px;
   width: 32px;
@@ -21,7 +21,8 @@ const Wrapper = styled.button`
 const Line = styled.div`
   height: 2px;
   width: 20px;
-  background: #000;
+  background-color: ${({ isToggled }) =>
+    isToggled ? 'var(--font-color-dark)' : 'var(--font-color-light)'};
   transition: all 0.2s ease;
 `
 

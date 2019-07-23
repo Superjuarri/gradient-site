@@ -3,14 +3,15 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
+  z-index: 997;
   position: relative;
 
-  top: 147px;
-  right: 100%;
+  top: 116px;
+  right: 0px;
 `
 
 const Content = styled.div`
-  width: 200%;
+  width: 150%;
   background: #f4f4f4;
 `
 
@@ -23,8 +24,10 @@ const activeClassName = 'active'
 const StyledLink = styled(Link).attrs({
   activeClassName: activeClassName,
 })`
-  margin-left: 1.5vw;
+  position: relative;
+  right: 35px;
   padding: 1rem;
+  text-align: right;
   text-decoration: none;
   transition: 0.2s;
   font-size: 1rem;

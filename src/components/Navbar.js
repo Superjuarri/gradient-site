@@ -38,8 +38,11 @@ const LogoWrapper = styled.div`
 `
 
 const Logo = styled(Link)`
+  position: relative;
+  right: 1rem;
+
   cursor: pointer;
-  padding: 1rem;
+  padding: 0.8rem;
 
   font-size: 1.5rem;
   line-height: 27.6px;
