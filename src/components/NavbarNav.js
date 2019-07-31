@@ -8,6 +8,10 @@ const Wrapper = styled.nav`
   flex-direction: row;
   position: relative;
   left: 1rem;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 `
 
 const activeClassName = 'active'
@@ -19,7 +23,7 @@ const StyledLink = styled(Link).attrs({
   text-decoration: none;
   transition: 0.2s;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
 
   color: var(--font-color-light);
 
@@ -29,14 +33,7 @@ const StyledLink = styled(Link).attrs({
   }
 
   &.${activeClassName} {
-    background: linear-gradient(45deg, #00dbde, #fc00ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400% 400%;
-    animation: Gradient 15s ease infinite;
-
-    transition: 0.2s;
+    color: var(--bright_pink);
   }
 `
 
@@ -44,9 +41,15 @@ const NavbarNav = () => {
   return (
     <Wrapper>
       <StyledLink to="/">Home</StyledLink>
-      <StyledLink to="/palettes">Palettes</StyledLink>
-      <StyledLink to="/gradients">Gradients</StyledLink>
-      <StyledLink to="/tools">Tools</StyledLink>
+      <StyledLink to="/palettes" partiallyActive={true}>
+        Palettes
+      </StyledLink>
+      <StyledLink to="/gradients" partiallyActive={true}>
+        Gradients
+      </StyledLink>
+      <StyledLink to="/tools" partiallyActive={true}>
+        Tools
+      </StyledLink>
     </Wrapper>
   )
 }

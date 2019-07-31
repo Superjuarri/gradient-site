@@ -5,31 +5,17 @@ import 'normalize.css'
 import '../styles/style.css'
 
 import Layout from '../components/Layout'
-
-const Wrapper = styled.div`
-  width: 100vw;
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-`
+import Button from '../components/Button'
 
 const Content = styled.div`
   width: var(--content-width);
   max-width: var(--content-max-width);
-  height: 82.5vh;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
-`
-
-const StyledLink = styled(Link)`
-  min-width: 75px;
-
-  color: var(--font-color);
-  font-weight: 700;
 `
 
 const Text404 = styled.h1`
@@ -48,15 +34,15 @@ const Text404 = styled.h1`
 const NotFound = () => {
   return (
     <Layout documentTitle="Gradient Site - 404 error...">
-      <Wrapper>
-        <Content>
-          <Text404>
-            Page Not
-            <br /> Found...
-          </Text404>
-          <StyledLink to="/">Return Home</StyledLink>
-        </Content>
-      </Wrapper>
+      <Content>
+        <Text404>
+          Page Not
+          <br /> Found...
+        </Text404>
+        <Link to="/">
+          <Button>Home</Button>
+        </Link>
+      </Content>
     </Layout>
   )
 }

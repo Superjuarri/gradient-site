@@ -2,8 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.footer`
+  z-index: 900;
+  flex-shrink: 0;
+
   width: 100vw;
   height: 75px;
+  background: #ffffff;
 
   display: flex;
   align-content: center;

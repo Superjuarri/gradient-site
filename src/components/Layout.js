@@ -1,30 +1,29 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
 import Navbar from './Navbar'
 import Footer from './Footer'
 
 const Wrapper = styled.div`
-  display: flex;
-  position: absolute;
+  position: relative;
+  height: 100%;
   min-height: 100vh;
+
+  display: flex;
   flex-direction: column;
 `
 
 const Content = styled.div`
-  flex: 1;
+  flex: 1 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
-const Layout = ({ children, documentTitle }) => {
+const Layout = ({ children }) => {
   return (
     <Wrapper>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{documentTitle}</title>
-        <html lang="en" />
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
       <Navbar />
       <Content>{children}</Content>
       <Footer />
