@@ -16,6 +16,10 @@ const Wrapper = styled.button`
   padding: 4px;
   border: none;
   background: transparent;
+
+  @media (min-width: 901px) {
+    display: none;
+  }
 `
 
 const Line = styled.div`
