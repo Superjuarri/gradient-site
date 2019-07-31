@@ -1,15 +1,21 @@
 :root {
   --content-width: 85vw;
-  --content-max-width: 1200px;
+  --content-max-width: 1440px;
 
-  --font-color: #4f4d63;
-  --font-color-dark: #2e2e2e;
+  --font-color: #4f4f6b;
+  --font-color-dark: #2d2d3d;
   --font-color-light: #696969;
+
+  --off_white: #f8faff;
+  --bright_pink: #f4157e;
+  --dull_pink: #cd106e;
+
+  --gradient: linear-gradient(45deg, #00dbde, #fc00ff);
 
   color: var(--font-color);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
-  font-size: calc(14px + (15.5 - 14) * ((100vw - 300px) / (1600 - 300)));
+  font-size: calc(14px + (16 - 15) * ((100vw - 300px) / (1600 - 300)));
 }
 
 body {
