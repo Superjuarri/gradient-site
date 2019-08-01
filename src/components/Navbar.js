@@ -5,6 +5,9 @@ import styled from 'styled-components'
 import NavbarNav from './NavbarNav'
 import Hamburger from './Hamburger'
 
+const borderHeight = '5px'
+const borderColors = ['#fd7473', '#fec951', '#47b8e0', '#9f68d0']
+
 const Wrapper = styled.div`
   z-index: 900;
   flex-shrink: 0;
@@ -20,9 +23,34 @@ const Wrapper = styled.div`
 
   background-color: #ffffff;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+
+  ::before {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: ${borderHeight};
+    border: 0;
+    background-color: var(--bright_pink);
+    background-image: linear-gradient(
+      90deg,
+      ${borderColors[0]},
+      ${borderColors[0]} 25%,
+      ${borderColors[1]} 25%,
+      ${borderColors[1]} 50%,
+      ${borderColors[2]} 50%,
+      ${borderColors[2]} 75%,
+      ${borderColors[3]} 75%,
+      ${borderColors[3]} 100%,
+      ${borderColors[3]} 100%
+    );
+    background-size: 50% 100%;
+  }
 `
 
 const Content = styled.div`
+  position: relative;
+  top: calc(${borderHeight} - 3px);
+
   display: flex;
 
   width: var(--content-width);
