@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   max-width: var(--max-width-content);
   height: 100%;
 
-  display: grid;
+  display: flex;
 `
 
 const Content = styled.div`
