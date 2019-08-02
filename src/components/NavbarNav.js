@@ -7,11 +7,7 @@ const Wrapper = styled.nav`
   align-items: center;
   flex-direction: row;
   position: relative;
-  left: 1rem;
-
-  @media (max-width: 900px) {
-    display: none;
-  }
+  left: 0.5rem;
 `
 
 const activeClassName = 'active'

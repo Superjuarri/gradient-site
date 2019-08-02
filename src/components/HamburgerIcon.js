@@ -4,11 +4,11 @@ import styled from 'styled-components'
 const Wrapper = styled.button`
   position: absolute;
   bottom: 10px;
-  right: 6.7vw;
+  right: 0;
 
   height: 32px;
   width: 32px;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -17,8 +17,8 @@ const Wrapper = styled.button`
   border: none;
   background: transparent;
 
-  @media (min-width: 901px) {
-    display: none;
+  @media (max-width: 750px) {
+    display: flex;
   }
 `
 

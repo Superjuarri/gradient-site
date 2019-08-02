@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import useWindowDimensions from '../hooks/useWindowDimensions'
 
 import NavbarNav from './NavbarNav'
 import Hamburger from './Hamburger'
@@ -80,14 +81,15 @@ const Logo = styled(Link)`
 `
 
 const Navbar = () => {
+  const { width } = useWindowDimensions()
+
   return (
     <Wrapper>
       <Content>
         <LogoWrapper>
           <Logo to="/">Color Site</Logo>
         </LogoWrapper>
-        <Hamburger />
-        <NavbarNav />
+        {width >= 750 ? <NavbarNav /> : <Hamburger />}
       </Content>
     </Wrapper>
   )
