@@ -10,7 +10,7 @@ const Wrapper = styled(animated.button)`
 
   font-size: 0.7rem;
   font-weight: 700;
-  color: var(--off_white);
+  color: var(--color-off-white);
   letter-spacing: 0.125rem;
   text-transform: uppercase;
   appearance: none;

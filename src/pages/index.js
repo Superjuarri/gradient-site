@@ -24,7 +24,7 @@ const Content = styled.div`
   align-self: center;
 `
 const Title = styled.h1`
-  color: var(--font-color-dark);
+  color: var(--color-font-dark);
   font-size: 2.5rem;
   white-space: nowrap;
 `
