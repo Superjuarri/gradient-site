@@ -6,7 +6,7 @@ import NavbarNav from './NavbarNav'
 import Hamburger from './Hamburger'
 
 const borderHeight = '5px'
-const borderColors = ['#fd7473', '#fec951', '#47b8e0', '#9f68d0']
+const borderColors = ['#fa5457', '#f6d51f', '#10e0db', '#a020f0']
 
 const Wrapper = styled.div`
   z-index: 900;
@@ -30,7 +30,7 @@ const Wrapper = styled.div`
     width: 100vw;
     height: ${borderHeight};
     border: 0;
-    background-color: var(--bright_pink);
+    background-color: var(--color-main);
     background-image: linear-gradient(
       90deg,
       ${borderColors[0]},
@@ -53,8 +53,8 @@ const Content = styled.div`
 
   display: flex;
 
-  width: var(--content-width);
-  max-width: var(--content-max-width);
+  width: var(--width-content);
+  max-width: var(--max-width-content);
 
   align-items: center;
 `
@@ -76,7 +76,7 @@ const Logo = styled(Link)`
   text-decoration: none;
   white-space: nowrap;
 
-  color: var(--bright_pink);
+  color: var(--color-main);
 `
 
 const Navbar = () => {

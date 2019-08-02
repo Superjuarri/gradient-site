@@ -11,11 +11,11 @@ import Button from '../components/Button'
 
 const Wrapper = styled.div`
   flex-grow: 1;
-  width: var(--content-width);
-  max-width: var(--content-max-width);
+  width: var(--width-content);
+  max-width: var(--max-width-content);
   height: 100%;
 
-  display: flex;
+  display: grid;
 `
 
 const Content = styled.div`
@@ -42,7 +42,7 @@ const Buttons = styled.div`
 
 const Background = styled.div`
   position: relative;
-  width: var(--content-width);
+  width: var(--width-content);
   height: 100%;
   pointer-events: none;
   user-select: none;

@@ -26,7 +26,7 @@ const Line = styled.div`
   height: 2px;
   width: 20px;
   background-color: ${({ isToggled }) =>
-    isToggled ? 'var(--font-color-dark)' : 'var(--font-color-light)'};
+    isToggled ? 'var(--color-font-dark)' : 'var(--color-font-light)'};
   transition: all 0.2s ease;
 `
 

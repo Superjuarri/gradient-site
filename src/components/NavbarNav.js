@@ -25,15 +25,15 @@ const StyledLink = styled(Link).attrs({
   font-size: 1rem;
   font-weight: 700;
 
-  color: var(--font-color-light);
+  color: var(--color-font-light);
 
   :hover,
   :focus {
-    color: var(--font-color-dark);
+    color: var(--color-font-dark);
   }
 
   &.${activeClassName} {
-    color: var(--bright_pink);
+    color: var(--color-main);
   }
 `
 

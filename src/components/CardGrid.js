@@ -4,8 +4,8 @@ import { animated, useSpring } from 'react-spring'
 
 const Wrapper = styled(animated.div)`
   margin: 30px 0;
-  width: var(--content-width);
-  max-width: var(--content-max-width);
+  width: var(--width-content);
+  max-width: var(--max-width-content);
 
   display: grid;
   gap: 40px;

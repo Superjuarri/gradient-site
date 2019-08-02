@@ -19,16 +19,16 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: var(--content-width);
-  max-width: var(--content-max-width);
+  width: var(--width-content);
+  max-width: var(--max-width-content);
 
-  color: var(--font-color-light);
+  color: var(--color-font-light);
   justify-content: center;
   align-items: center;
   font-size: 12px;
   font-weight: 500;
 
-  border-top: 1px dashed var(--font-color-light);
+  border-top: 1px dashed var(--color-font-light);
 `
 
 const Love = styled.p`

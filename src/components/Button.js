@@ -6,7 +6,7 @@ const Wrapper = styled(animated.button)`
   min-width: 125px;
 
   padding: 1rem 1.4rem;
-  background: var(--bright_pink);
+  background: var(--color-main);
 
   font-size: 0.7rem;
   font-weight: 700;
@@ -16,21 +16,14 @@ const Wrapper = styled(animated.button)`
   appearance: none;
   border: none;
   border-radius: 0.6rem;
-  box-shadow: 0 10px 20px -10px var(--dull_pink);
+  box-shadow: 0 10px 20px -10px var(--color-main);
   outline: none;
   position: relative;
   z-index: 2;
   cursor: pointer;
 
   &:hover {
-    background: lighten($bright_pink, 2%);
-    box-shadow: 0 8px 65px -5px $dull_pink;
-  }
-
-  &:active {
-    background: $dull_pink;
-    box-shadow: 0 10px 60px -10px $dull_pink;
-    transform: perspective(250px) scale3d(1, 1, 1) translateY(5%);
+    box-shadow: 0 10px 23px -10px var(--color-main);
   }
 `
 
