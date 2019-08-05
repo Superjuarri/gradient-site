@@ -18,7 +18,7 @@ const StyledLink = styled(Link).attrs({
   padding: 1rem;
   text-decoration: none;
   transition: 0.2s;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
 
   color: var(--color-font-light);

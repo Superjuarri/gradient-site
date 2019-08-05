@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { animated, useSpring } from 'react-spring'
 
-const Wrapper = styled(animated.button)`
-  min-width: 125px;
+const Wrapper = styled(animated(Link))`
+  display: inline-block;
+  width: 125px;
 
   padding: 1rem 1.4rem;
   background: var(--color-main);
@@ -12,7 +14,9 @@ const Wrapper = styled(animated.button)`
   font-weight: 700;
   color: var(--color-off-white);
   letter-spacing: 0.125rem;
+  text-align: center;
   text-transform: uppercase;
+  text-decoration: none;
   appearance: none;
   border: none;
   border-radius: 0.6rem;
@@ -22,12 +26,17 @@ const Wrapper = styled(animated.button)`
   z-index: 2;
   cursor: pointer;
 
-  &:hover {
+  :hover,
+  :focus {
     box-shadow: 0 10px 23px -10px var(--color-main);
+  }
+
+  :focus {
+    outline: 1px dotted var(--color-main);
   }
 `
 
-const Button = ({ children, handleChange }) => {
+const ButtonLink = ({ children, to }) => {
   const [hover, setHover] = useState(false)
 
   const { s } = useSpring({
@@ -41,7 +50,7 @@ const Button = ({ children, handleChange }) => {
 
   return (
     <Wrapper
-      onClick={() => handleChange}
+      to={to}
       onFocus={() => setHover(!hover)}
       onBlur={() => setHover(!hover)}
       onMouseEnter={() => setHover(!hover)}
@@ -53,4 +62,4 @@ const Button = ({ children, handleChange }) => {
   )
 }
 
-export default Button
+export default ButtonLink

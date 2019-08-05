@@ -1,5 +1,5 @@
 :root {
-  --width-content: 85vw;
+  --width-content: 90vw;
   --min-width-content: 650px;
   --max-width-content: 1440px;
 
@@ -17,7 +17,9 @@
   color: var(--color-font);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
-  font-size: calc(14px + (16 - 15) * ((100vw - 300px) / (1600 - 300)));
+
+  /* font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width]))); */
+  font-size: calc(11px + (13 - 11) * ((1440px - 650px) / (1440 - 650)));
 }
 
 body {
