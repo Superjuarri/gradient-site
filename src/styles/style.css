@@ -19,7 +19,7 @@
   font-weight: 500;
 
   /* font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width]))); */
-  font-size: calc(11px + (13 - 11) * ((1440px - 650px) / (1440 - 650)));
+  font-size: calc(11px + (12.5 - 11) * ((100vw - 300px) / (1440 - 300)));
 }
 
 body {
