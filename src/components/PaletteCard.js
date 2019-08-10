@@ -19,7 +19,7 @@ const Color = styled.div`
   width: 100%;
   height: 100%;
 
-  background: #${({ color }) => color};
+  background: ${({ color }) => color};
 `
 
 const PaletteCard = ({ paletteData, setModalToggle, setCurrentPalette }) => {

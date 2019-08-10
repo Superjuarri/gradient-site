@@ -15,7 +15,7 @@ const Gradient = styled.div`
 
   background: linear-gradient(
     ${({ degree }) => degree}deg
-      ${({ gradient }) => gradient.map(color => `, #${color}`)}
+      ${({ gradient }) => gradient.map(color => `, ${color}`)}
   );
   cursor: pointer;
 `
