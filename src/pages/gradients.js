@@ -4,10 +4,10 @@ import styled from 'styled-components'
 import 'normalize.css'
 import '../styles/style.css'
 
-import Layout from '../components/Layout'
+import Layout from '../components/Layout/Layout'
 
-import CardGrid from '../components/CardGrid'
-import GradientCard from '../components/GradientCard'
+import CardGrid from '../components/CardGrid/CardGrid'
+import GradientCard from '../components/CardGrid/GradientCard'
 import Modal from '../components/Modal'
 
 const gradients = [

@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import 'normalize.css'
 import '../styles/style.css'
 
-import Layout from '../components/Layout'
-import Button from '../components/Button'
+import Layout from '../components/Layout/Layout'
+import Button from '../components/Buttons/Button'
 
 const Content = styled.div`
   width: var(--content-width);

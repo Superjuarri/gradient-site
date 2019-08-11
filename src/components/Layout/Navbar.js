@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import useWindowDimensions from '../hooks/useWindowDimensions'
+import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 import NavbarNav from './NavbarNav'
 import Hamburger from './Hamburger'

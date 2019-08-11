@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import chroma from 'chroma-js'
-import Layout from '../components/Layout'
+import Layout from '../components/Layout/Layout'
 
 const screenRatio = '210/200'
 

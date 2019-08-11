@@ -5,8 +5,8 @@ import 'normalize.css'
 import '../styles/style.css'
 
 import gooch from '../assets/images/goochIcon.png'
-import Layout from '../components/Layout'
-import ButtonLink from '../components/ButtonLink'
+import Layout from '../components/Layout/Layout'
+import ButtonLink from '../components/Buttons/ButtonLink'
 
 const screenRatio = '210/200'
 
