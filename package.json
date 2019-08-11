@@ -16,6 +16,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "browser-monads": "^1.0.0",
+    "chroma-js": "^2.0.4",
     "copy-to-clipboard": "^3.2.0",
     "gatsby": "^2.13.50",
     "gatsby-cli": "^2.7.26",

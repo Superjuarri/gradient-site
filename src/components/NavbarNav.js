@@ -43,8 +43,8 @@ const NavbarNav = () => {
       <StyledLink to="/gradients" partiallyActive={true}>
         Gradients
       </StyledLink>
-      <StyledLink to="/tools" partiallyActive={true}>
-        Tools
+      <StyledLink to="/color" partiallyActive={true}>
+        Color
       </StyledLink>
     </Wrapper>
   )

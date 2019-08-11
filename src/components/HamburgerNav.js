@@ -59,7 +59,7 @@ const HamburgerNav = () => {
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/palettes">Palettes</StyledLink>
           <StyledLink to="/gradients">Gradients</StyledLink>
-          <StyledLink to="/tools">Tools</StyledLink>
+          <StyledLink to="/color">Color</StyledLink>
         </Nav>
       </Content>
     </Wrapper>
