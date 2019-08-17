@@ -10,10 +10,11 @@ import Layout from '../components/Layout/Layout'
 
 import {
   InputText,
-  InputNumber,
+  InputRange,
   InputOption,
   InputCheckbox,
 } from '../components/Input'
+
 import ColorInformation from '../components/Color/ColorInformation'
 import ColorScale from '../components/Color/ColorScale'
 
@@ -29,13 +30,17 @@ const ColorWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
 
   @media (max-aspect-ratio: ${screenRatio}) {
-    gap: 0px;
+    gap: 50px;
     grid-template-rows: 0.75fr 1fr;
     grid-template-columns: 1fr;
   }
 `
 
 const ColorPanel = styled.div``
+
+const ColorInputWrapper = styled.div`
+  display: flex;
+`
 
 const ColorSquare = styled.div`
   width: 100%;
@@ -49,8 +54,19 @@ const ColorSquare = styled.div`
 `
 
 const Settings = styled.div`
+  margin-bottom: 25px;
+
   display: flex;
   justify-content: space-between;
+
+  @media (max-aspect-ratio: ${screenRatio}) {
+    flex-direction: column;
+    height: 100px;
+  }
+
+  :nth-child(n + 1) {
+    flex-shrink: 2;
+  }
 `
 
 const ScaleWrapper = styled.div`
@@ -58,11 +74,25 @@ const ScaleWrapper = styled.div`
   max-width: var(--max-width-content);
 `
 
+const RefreshButton = styled.button`
+  padding: 0.25em 1em;
+  border: 1px solid #cdc7c2;
+  border-radius: 5px;
+  background: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+`
+
 const Color = () => {
   const [color, setColor] = useState(chroma.random())
   const [ammountOfColors, setAmmountOfColors] = useState(6)
   const [scaleMode, setScaleMode] = useState('rgb')
   const [useCorrectLightness, setCorrectLightness] = useState(false)
+
+  const refreshColor = e => {
+    e.preventDefault()
+    setColor(chroma.random())
+  }
 
   const scaleLightness = chroma
     .scale([
@@ -94,22 +124,21 @@ const Color = () => {
       <Layout>
         <ColorWrapper>
           <ColorPanel>
-            <InputText
-              labelText="Color"
-              placeholder={color}
-              onChange={e =>
-                chroma.valid(e.target.value) && setColor(chroma(e.target.value))
-              }
-            >
-              <button
-                onClick={e => {
-                  e.preventDefault()
-                  setColor(chroma.random())
-                }}
-              >
-                Refresh
-              </button>
-            </InputText>
+            <ColorInputWrapper>
+              <InputText
+                labelText="Color"
+                placeholder={color}
+                onChange={e =>
+                  chroma.valid(e.target.value) &&
+                  setColor(chroma(e.target.value))
+                }
+              />
+              <RefreshButton
+                children="&#8635; Refresh"
+                onClick={refreshColor}
+              />
+            </ColorInputWrapper>
+
             <ColorInformation color={color} />
           </ColorPanel>
 
@@ -118,14 +147,12 @@ const Color = () => {
 
         <ScaleWrapper>
           <Settings>
-            <InputNumber
+            <InputRange
               labelText="Ammount"
               value={ammountOfColors}
               min={6}
-              max={360}
-              onChange={e =>
-                e.target.value <= 360 && setAmmountOfColors(e.target.value)
-              }
+              max={25}
+              onChange={e => setAmmountOfColors(e.target.value)}
             />
             <InputCheckbox
               labelText="Correct Lightness"
@@ -137,7 +164,6 @@ const Color = () => {
               onChange={e => e.target.value && setScaleMode(e.target.value)}
             />
           </Settings>
-
           <ColorScale scaleType={scaleLightness} scaleName="Lightness" />
           <ColorScale scaleType={scaleSaturation} scaleName="Saturation" />
         </ScaleWrapper>

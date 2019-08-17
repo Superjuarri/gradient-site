@@ -1,20 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Form = styled.form`
-  max-width: 18rem;
+const TypedInputWrapper = styled.div`
   display: flex;
-  align-items: baseline;
-  border-bottom: 2px solid ${({ color }) => color};
-  font-size: 1.5rem;
+  flex-wrap: nowrap;
+  align-items: center;
 `
 
-const Label = styled.label``
+const ClickedInputWrapper = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+`
+
+const Label = styled.label`
+  font-size: 1.25rem;
+  font-weight: 700;
+  white-space: nowrap;
+  margin-right: 1rem;
+`
 
 const Input = styled.input`
-  border: none;
-  outline: none;
-  padding: 0;
+  margin-right: 1rem;
 `
 
 const Select = styled.select``
@@ -23,9 +30,9 @@ const Option = styled.option``
 
 const Checkbox = styled.input``
 
-const InputText = ({ children, labelText, placeholder, value, onChange }) => {
+const InputText = ({ labelText, placeholder, value, onChange }) => {
   return (
-    <Form>
+    <TypedInputWrapper>
       <Label>{`${labelText}: `}</Label>
       <Input
         type="text"
@@ -33,30 +40,46 @@ const InputText = ({ children, labelText, placeholder, value, onChange }) => {
         value={value}
         onChange={onChange}
       />
-      {children}
-    </Form>
+    </TypedInputWrapper>
   )
 }
 
-const InputNumber = ({ labelText, min, max, value, onChange }) => {
+const InputNumber = ({ labelText, value, min, max, step, onChange }) => {
   return (
-    <Form>
+    <TypedInputWrapper>
       <Label>{`${labelText}: `}</Label>
       <Input
         type="number"
         value={value}
         min={min}
         max={max}
+        step={step}
         onChange={onChange}
       />
-    </Form>
+    </TypedInputWrapper>
+  )
+}
+
+const InputRange = ({ labelText, value, min, max, step, onChange }) => {
+  return (
+    <ClickedInputWrapper>
+      <Label>{`${labelText}: `}</Label>
+      <Input
+        type="range"
+        value={value}
+        min={min}
+        max={max}
+        step={step}
+        onChange={onChange}
+      />
+    </ClickedInputWrapper>
   )
 }
 
 const InputOption = ({ labelText, options, onChange }) => {
   return (
-    <Label>
-      {`${labelText}: `}
+    <ClickedInputWrapper>
+      <Label>{`${labelText}: `}</Label>
       <Select onChange={onChange}>
         {options.map((option, index) => (
           <Option key={index} value={option}>
@@ -64,16 +87,17 @@ const InputOption = ({ labelText, options, onChange }) => {
           </Option>
         ))}
       </Select>
-    </Label>
+    </ClickedInputWrapper>
   )
 }
 
 const InputCheckbox = ({ labelText, onChange }) => {
   return (
-    <Label>
-      {`${labelText}: `} <Checkbox type="checkbox" onChange={onChange} />
-    </Label>
+    <ClickedInputWrapper>
+      <Label>{`${labelText}: `}</Label>
+      <Checkbox type="checkbox" onChange={onChange} />
+    </ClickedInputWrapper>
   )
 }
 
-export { InputText, InputNumber, InputOption, InputCheckbox }
+export { InputText, InputNumber, InputRange, InputOption, InputCheckbox }
