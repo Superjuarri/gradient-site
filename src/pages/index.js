@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   grid-auto-rows: 100%;
 
   @media (max-aspect-ratio: ${screenRatio}) {
-    grid-template-rows: 57.5% 30%;
+    grid-template-rows: 50% 50%;
     grid-template-columns: 100%;
   }
 `
@@ -33,7 +33,8 @@ const Content = styled.div`
   justify-self: center;
 
   @media (max-aspect-ratio: ${screenRatio}) {
-    align-self: center;
+    margin-bottom: 5vw;
+    align-self: end;
     justify-self: center;
     text-align: center;
   }
@@ -90,7 +91,7 @@ const Index = () => {
               Just for You
             </Title>
             <SubTitle>
-              Seek out insparation and integrate color palettes & <br />
+              Seek out inspiration and integrate color palettes & <br />
               gradients into your own projects.
             </SubTitle>
             <Buttons>
