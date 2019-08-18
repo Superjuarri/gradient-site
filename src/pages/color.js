@@ -21,7 +21,7 @@ import ColorScale from '../components/Color/ColorScale'
 const screenRatio = '210/200'
 
 const ColorWrapper = styled.div`
-  margin: 50px 0;
+  margin: 5vh 0;
   width: var(--width-content);
   max-width: var(--max-width-content);
 
@@ -85,7 +85,7 @@ const RefreshButton = styled.button`
 
 const Color = () => {
   const [color, setColor] = useState(chroma.random())
-  const [ammountOfColors, setAmmountOfColors] = useState(6)
+  const [amountColors, setAmountColors] = useState(6)
   const [scaleMode, setScaleMode] = useState('rgb')
   const [useCorrectLightness, setCorrectLightness] = useState(false)
 
@@ -102,7 +102,7 @@ const Color = () => {
     ])
     .mode(scaleMode)
     .correctLightness(useCorrectLightness)
-    .colors(ammountOfColors)
+    .colors(amountColors)
 
   const scaleSaturation = chroma
     .scale([
@@ -111,7 +111,7 @@ const Color = () => {
       color.set('hsl.s', 0),
     ])
     .mode(scaleMode)
-    .colors(ammountOfColors)
+    .colors(amountColors)
 
   return (
     <>
@@ -148,11 +148,11 @@ const Color = () => {
         <ScaleWrapper>
           <Settings>
             <InputRange
-              labelText="Ammount"
-              value={ammountOfColors}
+              labelText="Amount"
+              value={amountColors}
               min={6}
               max={25}
-              onChange={e => setAmmountOfColors(e.target.value)}
+              onChange={e => setAmountColors(e.target.value)}
             />
             <InputCheckbox
               labelText="Correct Lightness"
