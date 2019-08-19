@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby'
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
@@ -10,171 +11,6 @@ import CardGrid from '../components/CardGrid/CardGrid'
 import GradientCard from '../components/CardGrid/GradientCard'
 import Modal from '../components/Modal'
 
-const gradients = [
-  {
-    name: 'Cotton Candy',
-    degree: 45,
-    gradient: ['#ffadfb', '#bca6ff', '#cfefff'],
-  },
-  {
-    name: 'North Miracle',
-    degree: 135,
-    gradient: ['#00dbde', '#fc00ff'],
-  },
-
-  {
-    name: 'Hashtag',
-    degree: 135,
-    gradient: ['#ff45e6', '#ff7445'],
-  },
-  {
-    name: 'Cyano',
-    degree: 45,
-    gradient: ['#69ffe9', '#85ffa8'],
-  },
-  {
-    name: 'Indigo',
-    degree: 45,
-    gradient: ['#4264fb', '#5a77fa'],
-  },
-  {
-    name: 'Soft Fruit',
-    degree: 45,
-    gradient: ['#ff75e3', '#8aa9ff'],
-  },
-  {
-    name: 'Lollipop',
-    degree: 135,
-    gradient: ['#a445b2', '#d41872', '#ff0066'],
-  },
-  {
-    name: 'Warm Flame',
-    degree: 45,
-    gradient: ['#ff9a9e', '#fad0c4'],
-  },
-  {
-    name: 'Dusty Grass',
-    degree: 45,
-    gradient: ['#d4fc79', '#96e6a1'],
-  },
-  {
-    name: 'Bubble Gum',
-    degree: 45,
-    gradient: ['#ff758c', '#ff7eb3'],
-  },
-  {
-    name: 'Near Moon',
-    degree: 45,
-    gradient: ['#5ee7df', '#b490ca'],
-  },
-  {
-    name: 'Atlas',
-    degree: 135,
-    gradient: ['#FEAC5E', '#C779D0', '#4BC0C8'],
-  },
-  {
-    name: 'Shallow Sand',
-    degree: 135,
-    gradient: ['#b5fffc', '#ffdee9'],
-  },
-  {
-    name: 'Salvation',
-    degree: 45,
-    gradient: ['#f43b47', '#453a94'],
-  },
-  {
-    name: 'Kiss',
-    degree: 125,
-    gradient: ['#ff0844', '#ffb199'],
-  },
-  {
-    name: 'Gagarin',
-    degree: 135,
-    gradient: ['#69EACB', '#6654F1'],
-  },
-  {
-    name: 'Cotton Candy',
-    degree: 45,
-    gradient: ['#ffadfb', '#bca6ff', '#cfefff'],
-  },
-  {
-    name: 'North Miracle',
-    degree: 135,
-    gradient: ['#00dbde', '#fc00ff'],
-  },
-
-  {
-    name: 'Hashtag',
-    degree: 135,
-    gradient: ['#ff45e6', '#ff7445'],
-  },
-  {
-    name: 'Cyano',
-    degree: 45,
-    gradient: ['#69ffe9', '#85ffa8'],
-  },
-  {
-    name: 'Indigo',
-    degree: 45,
-    gradient: ['#4264fb', '#5a77fa'],
-  },
-  {
-    name: 'Soft Fruit',
-    degree: 45,
-    gradient: ['#ff75e3', '#8aa9ff'],
-  },
-  {
-    name: 'Lollipop',
-    degree: 135,
-    gradient: ['#a445b2', '#d41872', '#ff0066'],
-  },
-  {
-    name: 'Warm Flame',
-    degree: 45,
-    gradient: ['#ff9a9e', '#fad0c4'],
-  },
-  {
-    name: 'Dusty Grass',
-    degree: 45,
-    gradient: ['#d4fc79', '#96e6a1'],
-  },
-  {
-    name: 'Bubble Gum',
-    degree: 45,
-    gradient: ['#ff758c', '#ff7eb3'],
-  },
-  {
-    name: 'Near Moon',
-    degree: 45,
-    gradient: ['#5ee7df', '#b490ca'],
-  },
-  {
-    name: 'Atlas',
-    degree: 135,
-    gradient: ['#FEAC5E', '#C779D0', '#4BC0C8'],
-  },
-  {
-    name: 'Shallow Sand',
-    degree: 135,
-    gradient: ['#b5fffc', '#ffdee9'],
-  },
-  {
-    name: 'Salvation',
-    degree: 45,
-    gradient: ['#f43b47', '#453a94'],
-  },
-  {
-    name: 'Kiss',
-    degree: 125,
-    gradient: ['#ff0844', '#ffb199'],
-  },
-  {
-    name: 'Gagarin',
-    degree: 135,
-    gradient: ['#69EACB', '#6654F1'],
-  },
-]
-
 const GradientModal = styled.div`
   width: 100%;
   height: 100%;
@@ -186,14 +22,16 @@ const GradientModal = styled.div`
   );
 `
 
-const GradientsPage = () => {
-  const [currentGradient, setCurrentGradient] = useState(gradients[0])
+const GradientsPage = ({ data }) => {
+  const [currentGradient, setCurrentGradient] = useState(
+    data.allMongodbMainGradients.nodes[0]
+  )
   const [modalToggle, setModalToggle] = useState(false)
 
-  const gradientCards = gradients.map((gradient, index) => {
+  const gradientCards = data.allMongodbMainGradients.nodes.map(gradient => {
     return (
       <GradientCard
-        key={index}
+        key={gradient.mongodb_id}
         gradientData={gradient}
         setModalToggle={setModalToggle}
         setCurrentGradient={setCurrentGradient}
@@ -220,3 +58,16 @@ const GradientsPage = () => {
 }
 
 export default GradientsPage
+
+export const query = graphql`
+  query GradientsPageQuery {
+    allMongodbMainGradients {
+      nodes {
+        degree
+        gradient
+        mongodb_id
+        name
+      }
+    }
+  }
+`

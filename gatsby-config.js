@@ -21,6 +21,24 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-mongodb`,
+      options: {
+        dbName: `main`,
+        collection: [`gradients`, `palettes`],
+        server: {
+          address: 'cluster0-shard-00-01-mxgqc.mongodb.net',
+          port: 27017,
+        },
+        auth: { user: `User`, password: `User` },
+        extraParams: {
+          replicaSet: 'Cluster0-shard-0',
+          ssl: true,
+          authSource: `admin`,
+          retryWrites: true,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         displayName: false,
