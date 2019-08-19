@@ -119,7 +119,7 @@ const Color = () => {
         <meta charSet="utf-8" />
         <title>Color Site | Color</title>
         <html lang="en" />
-        <link rel="canonical" href="http://mysite.com/example" />
+        <link rel="canonical" href="https://colorsite.netlify.com/" />
       </Helmet>
       <Layout>
         <ColorWrapper>

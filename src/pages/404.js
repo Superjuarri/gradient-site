@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import 'normalize.css'
@@ -33,17 +34,25 @@ const Text404 = styled.h1`
 
 const NotFound = () => {
   return (
-    <Layout documentTitle="Gradient Site - 404 error...">
-      <Content>
-        <Text404>
-          Page Not
-          <br /> Found...
-        </Text404>
-        <Link to="/">
-          <Button>Home</Button>
-        </Link>
-      </Content>
-    </Layout>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Color Site | Color</title>
+        <html lang="en" />
+        <link rel="canonical" href="https://colorsite.netlify.com/" />
+      </Helmet>
+      <Layout>
+        <Content>
+          <Text404>
+            Page Not
+            <br /> Found...
+          </Text404>
+          <Link to="/">
+            <Button>Home</Button>
+          </Link>
+        </Content>
+      </Layout>
+    </>
   )
 }
 

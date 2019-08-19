@@ -56,7 +56,7 @@ const Palettes = ({ data }) => {
         <meta charSet="utf-8" />
         <title>Color Site | Palettes</title>
         <html lang="en" />
-        <link rel="canonical" href="http://mysite.com/example" />
+        <link rel="canonical" href="https://colorsite.netlify.com/" />
       </Helmet>
       <Layout>
         <Modal modalToggle={modalToggle} setModalToggle={setModalToggle}>

@@ -45,7 +45,7 @@ const GradientsPage = ({ data }) => {
         <meta charSet="utf-8" />
         <title>Color Site | Gradients</title>
         <html lang="en" />
-        <link rel="canonical" href="http://mysite.com/example" />
+        <link rel="canonical" href="https://colorsite.netlify.com/" />
       </Helmet>
       <Layout documentTitle="Gradient Site - Gradients">
         <Modal modalToggle={modalToggle} setModalToggle={setModalToggle}>
