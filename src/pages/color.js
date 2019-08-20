@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import 'normalize.css'
 import '../styles/style.css'
 
 import chroma from 'chroma-js'
+import SEO from '../components/SEO'
 
 import Layout from '../components/Layout/Layout'
 
@@ -115,12 +115,7 @@ const Color = () => {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Color Site | Color</title>
-        <html lang="en" />
-        <link rel="canonical" href="https://colorsite.netlify.com/" />
-      </Helmet>
+      <SEO title="Color" />
       <Layout>
         <ColorWrapper>
           <ColorPanel>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useClipboard } from 'use-clipboard-copy'
 import chroma from 'chroma-js'
 
 const Wrapper = styled.div`
@@ -9,15 +10,21 @@ const Wrapper = styled.div`
   flex-direction: column;
 `
 
-const GroupWrapper = styled.div``
+const GroupWrapper = styled.div`
+  cursor: pointer;
+`
 
 const Format = styled.strong``
 
 const Value = styled.span``
 
 const Group = ({ format, value }) => {
+  const clipboard = useClipboard({
+    copiedTimeout: 600, // timeout duration in milliseconds
+  })
+
   return (
-    <GroupWrapper>
+    <GroupWrapper onClick={() => clipboard.copy(value)}>
       <Format>{format}</Format>
       <Value>{value}</Value>
     </GroupWrapper>

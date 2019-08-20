@@ -5,7 +5,8 @@ import { animated, useSpring } from 'react-spring'
 
 const Wrapper = styled(animated(Link))`
   display: inline-block;
-  width: 125px;
+  width: 100%;
+  min-width: 125px;
 
   padding: 1rem 1.4rem;
   background: var(--color-main);

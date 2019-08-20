@@ -1,8 +1,9 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import 'normalize.css'
 import '../styles/style.css'
+
+import SEO from '../components/SEO'
 
 import gooch from '../assets/images/goochIcon.png'
 import Layout from '../components/Layout/Layout'
@@ -77,12 +78,7 @@ const Background = styled.div`
 const Index = () => {
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Color Site | Home</title>
-        <html lang="en" />
-        <link rel="canonical" href="https://colorsite.netlify.com/" />
-      </Helmet>
+      <SEO title="Home" />
       <Layout>
         <Wrapper>
           <Content>

@@ -5,6 +5,13 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: `Color Site`,
+    url: `https://colorsite.netlify.com/`,
+    description: `Seek out inspiration and integrate color palettes & gradients into your own projects.`,
+    name: 'Julian Rivera',
+    username: 'Superjuarri',
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,

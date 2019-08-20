@@ -1,9 +1,10 @@
 import { graphql } from 'gatsby'
 import React, { useState } from 'react'
-import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import 'normalize.css'
 import '../styles/style.css'
+
+import SEO from '../components/SEO'
 
 import Layout from '../components/Layout/Layout'
 
@@ -52,12 +53,7 @@ const Palettes = ({ data }) => {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Color Site | Palettes</title>
-        <html lang="en" />
-        <link rel="canonical" href="https://colorsite.netlify.com/" />
-      </Helmet>
+      <SEO title="Palettes" />
       <Layout>
         <Modal modalToggle={modalToggle} setModalToggle={setModalToggle}>
           <PaletteModal palette={currentPalette}>{colors}</PaletteModal>

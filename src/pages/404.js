@@ -1,9 +1,10 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import 'normalize.css'
 import '../styles/style.css'
+
+import SEO from '../components/SEO'
 
 import Layout from '../components/Layout/Layout'
 import Button from '../components/Buttons/Button'
@@ -35,12 +36,7 @@ const Text404 = styled.h1`
 const NotFound = () => {
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Color Site | Color</title>
-        <html lang="en" />
-        <link rel="canonical" href="https://colorsite.netlify.com/" />
-      </Helmet>
+      <SEO title="404" />
       <Layout>
         <Content>
           <Text404>

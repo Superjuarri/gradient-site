@@ -1,9 +1,10 @@
 import { graphql } from 'gatsby'
 import React, { useState } from 'react'
-import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import 'normalize.css'
 import '../styles/style.css'
+
+import SEO from '../components/SEO'
 
 import Layout from '../components/Layout/Layout'
 
@@ -41,13 +42,8 @@ const GradientsPage = ({ data }) => {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Color Site | Gradients</title>
-        <html lang="en" />
-        <link rel="canonical" href="https://colorsite.netlify.com/" />
-      </Helmet>
-      <Layout documentTitle="Gradient Site - Gradients">
+      <SEO title="Gradients" />
+      <Layout>
         <Modal modalToggle={modalToggle} setModalToggle={setModalToggle}>
           <GradientModal gradientData={currentGradient} />
         </Modal>
