@@ -4,6 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: `Color Site`,
@@ -36,7 +38,7 @@ module.exports = {
           address: 'cluster0-shard-00-01-mxgqc.mongodb.net',
           port: 27017,
         },
-        auth: { user: `User`, password: `User` },
+        auth: { user: process.env.DB_USER, password: process.env.DB_PASS },
         extraParams: {
           replicaSet: 'Cluster0-shard-0',
           ssl: true,
