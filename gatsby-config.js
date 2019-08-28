@@ -38,7 +38,7 @@ module.exports = {
           address: 'cluster0-shard-00-01-mxgqc.mongodb.net',
           port: 27017,
         },
-        auth: { user: process.env.DB_USER, password: process.env.DB_PASS },
+        auth: { user: 'User', password: 'User' },
         extraParams: {
           replicaSet: 'Cluster0-shard-0',
           ssl: true,

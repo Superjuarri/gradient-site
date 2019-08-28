@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import 'normalize.css'
 import '../styles/style.css'
 
+import { usePaletteData } from '../hooks/usePaletteData'
+
 import SEO from '../components/SEO'
 
 import Layout from '../components/Layout/Layout'
@@ -30,13 +32,14 @@ const Color = styled.div`
   background: ${({ color }) => color};
 `
 
-const Palettes = ({ data }) => {
-  const [currentPalette, setCurrentPalette] = useState(
-    data.allMongodbMainPalettes.nodes[0]
-  )
+const Palettes = () => {
+  const { allMongodbMainPalettes } = usePaletteData()
+  const palettes = allMongodbMainPalettes.nodes
+
+  const [currentPalette, setCurrentPalette] = useState(palettes[0])
   const [modalToggle, setModalToggle] = useState(false)
 
-  const paletteCards = data.allMongodbMainPalettes.nodes.map(palette => {
+  const paletteCards = palettes.map(palette => {
     return (
       <PaletteCard
         key={palette.mongodb_id}

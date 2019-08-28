@@ -1,8 +1,9 @@
-import { graphql } from 'gatsby'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import 'normalize.css'
 import '../styles/style.css'
+
+import { useGradientData } from '../hooks/useGradientData'
 
 import SEO from '../components/SEO'
 
@@ -23,13 +24,14 @@ const GradientModal = styled.div`
   );
 `
 
-const GradientsPage = ({ data }) => {
-  const [currentGradient, setCurrentGradient] = useState(
-    data.allMongodbMainGradients.nodes[0]
-  )
+const GradientsPage = () => {
+  const { allMongodbMainGradients } = useGradientData()
+  const gradients = allMongodbMainGradients.nodes
+
+  const [currentGradient, setCurrentGradient] = useState(gradients[0])
   const [modalToggle, setModalToggle] = useState(false)
 
-  const gradientCards = data.allMongodbMainGradients.nodes.map(gradient => {
+  const gradientCards = gradients.map(gradient => {
     return (
       <GradientCard
         key={gradient.mongodb_id}
@@ -54,16 +56,3 @@ const GradientsPage = ({ data }) => {
 }
 
 export default GradientsPage
-
-export const query = graphql`
-  query GradientsPageQuery {
-    allMongodbMainGradients {
-      nodes {
-        degree
-        gradient
-        mongodb_id
-        name
-      }
-    }
-  }
-`
